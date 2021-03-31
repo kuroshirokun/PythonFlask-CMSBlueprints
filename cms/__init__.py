@@ -12,6 +12,7 @@ app.register_blueprint(admin_bp)
 
 db.init_app(app)
 
+
 ## Front-end Route
 @app.template_filter('pluralize')
 def pluralize(string, end=None, rep=''):
