@@ -67,3 +67,4 @@ instance/
 venv/
 .venv/
 .venv
+termcolor-1.1.0/

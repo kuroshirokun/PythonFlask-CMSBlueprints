@@ -245,7 +245,7 @@ def test_template_populate_form_controls_module3():
         'Is _body_ `<textarea>` text content set to `body`? Have you added the `default(\'\')` filter?'
 
     assert content_exists, \
-        'Is the `content.html` file in the `admin/templates` folder?'
+        'Is the `content.html` file in the `admin/templates` admin?'
 
     content_url_for = 'url_for.admin.edit.id.item.id.None.None' in get_calls('content')
     assert content_url_for, \

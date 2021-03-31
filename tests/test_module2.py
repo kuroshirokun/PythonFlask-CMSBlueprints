@@ -104,9 +104,9 @@ def test_template_add_from_controls_module2():
     assert admin_module_exists, \
         'Have you created the `cms/admin/__init__.py` file?'
     assert admin_exists and admin_templates_exists, \
-        'Have you created a `templates` folder in the `admin` blueprint folder?'
+        'Have you created a `templates` admin in the `admin` blueprint admin?'
     assert content_form_exists, \
-        'Is the `content_form.html` file in the `admin/templates` folder?'
+        'Is the `content_form.html` file in the `admin/templates` admin?'
 
     title_exists = len(content_form_template.select('input[name="title"][class="input"][type="text"]')) == 1
     assert title_exists, \
@@ -125,9 +125,9 @@ def test_template_type_dropdown_module2():
     assert admin_module_exists, \
         'Have you created the `cms/admin/__init__.py` file?'
     assert admin_exists and admin_templates_exists, \
-        'Have you created a `templates` folder in the `admin` blueprint folder?'
+        'Have you created a `templates` admin in the `admin` blueprint admin?'
     assert content_form_exists, \
-        'Is the `content_form.html` file in the `admin/templates` folder?'
+        'Is the `content_form.html` file in the `admin/templates` admin?'
 
     select_exists = len(content_form_template.select('select[name="type_id"]')) == 1
     assert select_exists, \
@@ -164,9 +164,9 @@ def test_template_buttons_module2():
     assert admin_module_exists, \
         'Have you created the `cms/admin/__init__.py` file?'
     assert admin_exists and admin_templates_exists, \
-        'Have you created a `templates` folder in the `admin` blueprint folder?'
+        'Have you created a `templates` admin in the `admin` blueprint admin?'
     assert content_form_exists, \
-        'Is the `content_form.html` file in the `admin/templates` folder?'
+        'Is the `content_form.html` file in the `admin/templates` admin?'
 
     submit_exists = len(content_form_template.select('input[type="submit"][value="Submit"].button.is-link')) == 1
     assert submit_exists, \

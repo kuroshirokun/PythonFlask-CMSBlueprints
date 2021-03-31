@@ -40,18 +40,18 @@ def main_module_code():
 @pytest.mark.test_admin_blueprint_folder_structure_module1
 def test_admin_blueprint_folder_structure_module1():
     assert admin_exists, \
-        'Have you created the `admin` blueprint folder?'
+        'Have you created the `admin` blueprint admin?'
     assert module_exists, \
-        'Have you added the `__init__.py` file to the `admin` blueprint folder?'
+        'Have you added the `__init__.py` file to the `admin` blueprint admin?'
     assert models_exists, \
-        'Have you added the `models.py` file to the `admin` blueprint folder?'
+        'Have you added the `models.py` file to the `admin` blueprint admin?'
 
 @pytest.mark.test_admin_blueprint_models_file_imports_module1
 def test_admin_blueprint_models_file_imports_module1():
     assert admin_exists, \
-        'Have you created the `admin` blueprint folder?'
+        'Have you created the `admin` blueprint admin?'
     assert models_exists, \
-        'Have you added the `models.py` file to the `admin` blueprint folder?'
+        'Have you added the `models.py` file to the `admin` blueprint admin?'
 
     import_sql = models_code().find('name', lambda node: \
         node.value == 'flask_sqlalchemy' and \
@@ -82,11 +82,11 @@ def test_admin_blueprint_models_file_imports_module1():
 @pytest.mark.test_admin_blueprint_move_model_classes_module1
 def test_admin_blueprint_move_model_classes_module1():
     assert admin_exists, \
-        'Have you created the `admin` blueprint folder?'
+        'Have you created the `admin` blueprint admin?'
     assert models_exists, \
-        'Have you added the `models.py` file to the `admin` blueprint folder?'
+        'Have you added the `models.py` file to the `admin` blueprint admin?'
     assert main_module_exists, \
-        'Have do you have an `__init__.py` file in the `cms` application folder?'
+        'Have do you have an `__init__.py` file in the `cms` application admin?'
 
     model_classes = list(models_code().find_all('class').map(lambda node: node.name))
     class_count = len(model_classes) == 4
@@ -134,9 +134,9 @@ def test_admin_blueprint_move_model_classes_module1():
 @pytest.mark.test_cms_module_import_db_module1
 def test_cms_module_import_db_module1():
     assert admin_exists, \
-        'Have you created the `admin` blueprint folder?'
+        'Have you created the `admin` blueprint admin?'
     assert main_module_exists, \
-        'Have do you have an `__init__.py` file in the `cms` application folder?'
+        'Have do you have an `__init__.py` file in the `cms` application admin?'
 
     db_assignment = main_module_code().find('atomtrailers', lambda node: \
         node.value[0].value == 'SQLAlchemy' and \
@@ -170,9 +170,9 @@ def test_cms_module_import_db_module1():
 @pytest.mark.test_cms_module_remove_imports_module1
 def test_cms_module_remove_imports_module1():
     assert admin_exists, \
-        'Have you created the `admin` blueprint folder?'
+        'Have you created the `admin` blueprint admin?'
     assert main_module_exists, \
-        'Have do you have an `__init__.py` file in the `cms` application folder?'
+        'Have do you have an `__init__.py` file in the `cms` application admin?'
 
     main_import_sql = main_module_code().find('name', lambda node: \
         node.value == 'flask_sqlalchemy' and \
@@ -191,9 +191,9 @@ def test_cms_module_remove_imports_module1():
 @pytest.mark.test_admin_blueprint_create_blueprint_module1
 def test_admin_blueprint_create_blueprint_module1():
     assert admin_exists, \
-        'Have you created the `admin` blueprint folder?'
+        'Have you created the `admin` blueprint admin?'
     assert module_exists, \
-        'Have you added the `__init__.py` file to the `admin` blueprint folder?'
+        'Have you added the `__init__.py` file to the `admin` blueprint admin?'
 
     blueprint_from = module_code().find('from_import', lambda node: \
         node.value[0].value == 'flask' and \
@@ -227,9 +227,9 @@ def test_admin_blueprint_create_blueprint_module1():
 @pytest.mark.test_admin_blueprint_imports_module1
 def test_admin_blueprint_imports_module1():
     assert admin_exists, \
-        'Have you created the `admin` blueprint folder?'
+        'Have you created the `admin` blueprint admin?'
     assert module_exists, \
-        'Have you added the `__init__.py` file to the `admin` blueprint folder?'
+        'Have you added the `__init__.py` file to the `admin` blueprint admin?'
 
     flask_import = get_imports(module_code(), 'flask')
     flask_import_exits = flask_import is not None
@@ -266,11 +266,11 @@ def test_admin_blueprint_imports_module1():
 @pytest.mark.test_admin_blueprint_move_routes_module1
 def test_admin_blueprint_move_routes_module1():
     assert admin_exists, \
-        'Have you created the `admin` blueprint folder?'
+        'Have you created the `admin` blueprint admin?'
     assert module_exists, \
-        'Have you added the `__init__.py` file to the `admin` blueprint folder?'
+        'Have you added the `__init__.py` file to the `admin` blueprint admin?'
     assert main_module_exists, \
-        'Have do you have an `__init__.py` file in the `cms` application folder?'
+        'Have do you have an `__init__.py` file in the `cms` application admin?'
 
     methods = list(module_code().find_all('def').map(lambda node: node.name))
 
@@ -317,9 +317,9 @@ def test_admin_blueprint_move_routes_module1():
 @pytest.mark.test_cms_module_register_blueprint_module1
 def test_cms_module_register_blueprint_module1():
     assert admin_exists, \
-        'Have you created the `admin` blueprint folder?'
+        'Have you created the `admin` blueprint admin?'
     assert main_module_exists, \
-        'Have do you have an `__init__.py` file in the `cms` application folder?'
+        'Have do you have an `__init__.py` file in the `cms` application admin?'
 
     bp_import = get_imports(main_module_code(), 'cms.admin') or get_imports(main_module_code(), '.admin')
     bp_import_exists = bp_import is not None
@@ -350,9 +350,9 @@ def test_cms_module_register_blueprint_module1():
 @pytest.mark.test_admin_blueprint_template_folder_module1
 def test_admin_blueprint_template_folder_module1():
     assert admin_exists, \
-        'Have you created the `admin` blueprint folder?'
+        'Have you created the `admin` blueprint admin?'
     assert module_exists, \
-        'Have you added the `__init__.py` file to the `admin` blueprint folder?'
+        'Have you added the `__init__.py` file to the `admin` blueprint admin?'
 
     admin_bp = module_code().find('assign', lambda node: \
         node.target.value == 'admin_bp')
@@ -373,37 +373,37 @@ def test_admin_blueprint_template_folder_module1():
     admin_templates = admin / 'templates'
     admin_templates_exists = Path.exists(admin_templates) and Path.is_dir(admin_templates)
     assert admin_templates_exists, \
-        'Have you created a `templates` folder in the `admin` blueprint folder?'
+        'Have you created a `templates` admin in the `admin` blueprint admin?'
 
     move = admin_templates / 'admin'
     move_exists = Path.exists(move) and Path.is_dir(move)
     assert move_exists, \
-        'Have you move the `admin` folder from the root `templates` folder to the `admin` blueprint `templates` folder?'
+        'Have you move the `admin` admin from the root `templates` admin to the `admin` blueprint `templates` admin?'
 
     content        = move / 'content.html'
     content_exists = Path.exists(content) and Path.is_file(content)
     assert content_exists, \
-        'Is the `content.html` template file in the `cms/admin/templates/admin` folder?'
+        'Is the `content.html` template file in the `cms/admin/templates/admin` admin?'
 
     content_form        = move / 'content_form.html'
     content_form_exists = Path.exists(content_form) and Path.is_file(content_form)
     assert content_form_exists, \
-        'Is the `content_form.html` template file in the `cms/admin/templates/admin` folder?'
+        'Is the `content_form.html` template file in the `cms/admin/templates/admin` admin?'
 
     layout        = move / 'layout.html'
     layout_exists = Path.exists(layout) and Path.is_file(layout)
     assert layout_exists, \
-        'Is the `layout.html` template file in the `cms/admin/templates/admin` folder?'
+        'Is the `layout.html` template file in the `cms/admin/templates/admin` admin?'
 
     settings        = move / 'settings.html'
     settings_exists = Path.exists(settings) and Path.is_file(settings)
     assert settings_exists, \
-        'Is the `settings.html` template file in the `cms/admin/templates/admin` folder?'
+        'Is the `settings.html` template file in the `cms/admin/templates/admin` admin?'
 
     users        = move / 'users.html'
     users_exists = Path.exists(users) and Path.is_file(users)
     assert users_exists, \
-        'Is the `users.html` template file in the `cms/admin/templates/admin` folder?'
+        'Is the `users.html` template file in the `cms/admin/templates/admin` admin?'
 
     links = template_functions('layout', 'url_for')
     page_link_exists = 'admin.content:type:page' in links
