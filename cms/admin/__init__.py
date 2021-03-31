@@ -16,7 +16,7 @@ def requested_type(type):
 def content(type):
     if requested_type(type):
         content = Content.query.join(Type).filter(Type.name == type)
-        return render_template('index.html', type=type, content=content)
+        return render_template('admin/content.html', type=type, content=content)
     else:
         abort(404)
 
