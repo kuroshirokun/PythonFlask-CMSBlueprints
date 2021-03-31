@@ -1,8 +1,8 @@
 from flask import Blueprint, render_template, abort
 from cms.admin.models import Type, Content, Setting, User
 
-admin_bp = Blueprint(name='admin', url_prefix='/admin', import_name=__name__,
-                     template_folder=r'/Users/kuro/Desktop/pluralsight/PythonFlask-CMSBlueprints/cms/admin/templates')
+admin_bp = Blueprint('admin', __name__, url_prefix='/admin',
+                     template_folder='templates')
 
 
 ## Admin Routes
@@ -16,12 +16,12 @@ def requested_type(type):
 def content(type):
     if requested_type(type):
         content = Content.query.join(Type).filter(Type.name == type)
-        return render_template('admin/content.html', type=type, content=content)
+        return render_template('index.html', type=type, content=content)
     else:
         abort(404)
 
 
-@admin_bp.route('/admin/create/<type>')
+@admin_bp.route('/create/<type>')
 def create(type):
     if requested_type(type):
         types = Type.query.all()
@@ -30,13 +30,13 @@ def create(type):
         abort(404)
 
 
-@admin_bp.route('/admin/users')
+@admin_bp.route('/users')
 def users():
     users = User.query.all()
     return render_template('admin/users.html', title='Users', users=users)
 
 
-@admin_bp.route('/admin/settings')
+@admin_bp.route('/settings')
 def settings():
     settings = Setting.query.all()
     return render_template('admin/settings.html', title='Settings', settings=settings)
